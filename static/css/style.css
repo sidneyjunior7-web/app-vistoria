@@ -1,0 +1,120 @@
+/* Estilos globais e da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F0F0F0; /* Cinza claro de fundo */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ocupa a altura total da tela */
+}
+
+.container {
+    max-width: 800px; /* Largura máxima para formulários maiores */
+    width: 90%;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333333;
+    border-bottom: 2px solid #FF6B00; /* Linha laranja para o título */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Estilos do formulário e dos campos */
+form {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */
+    justify-content: space-between;
+}
+
+label {
+    font-weight: bold;
+    color: #555555;
+    margin-bottom: 5px;
+    display: block;
+    width: 100%; /* Ocupa a largura total */
+}
+
+/* Agrupamento de campos para alinhamento em duas colunas */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    width: 48%; /* Ocupa quase metade da largura do formulário */
+    margin-bottom: 15px;
+}
+
+/* Campos de 100% de largura, como a Observação */
+.full-width {
+    width: 100%;
+}
+
+/* Alinhamento de campos de rádio */
+.radio-group {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.radio-group label {
+    display: inline-block;
+    width: auto;
+    font-weight: normal;
+    color: #333333;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box; /* Garante que o padding não adicione largura */
+}
+
+/* Estilo do botão de envio */
+button[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    margin-top: 25px;
+    background-color: #FF6B00;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #E65A00; /* Laranja um pouco mais escuro ao passar o mouse */
+}
+
+/* Estilos para o campo de fotos, que é um pouco diferente */
+input[type="file"] {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+}
+
+/* Responsividade: em telas menores, os campos ficam em uma única coluna */
+@media (max-width: 600px) {
+    .input-group {
+        width: 100%;
+    }
+}

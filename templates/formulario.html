@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vistoria Digital</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Relatório de Vistoria</h1>
+        <form id="formulario-vistoria" action="/enviar-vistoria" method="post" enctype="multipart/form-data">
+            
+            <div class="input-group">
+                <label for="id_container">ID do Container:</label>
+                <input type="text" id="id_container" name="id_container" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="tipo_container">Tipo de Container:</label>
+                <select id="tipo_container" name="tipo_container" required>
+                    <option value="">Selecione...</option>
+                    <option value="20">20"</option>
+                    <option value="40">40"</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="data_vistoria">Data da Vistoria:</label>
+                <input type="date" id="data_vistoria" name="data_vistoria" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="dia_semana">Dia da Semana:</label>
+                <select id="dia_semana" name="dia_semana" required>
+                    <option value="">Selecione...</option>
+                    <option value="segunda">Segunda-feira</option>
+                    <option value="terca">Terça-feira</option>
+                    <option value="quarta">Quarta-feira</option>
+                    <option value="quinta">Quinta-feira</option>
+                    <option value="sexta">Sexta-feira</option>
+                    <option value="sabado">Sábado</option>
+                    <option value="domingo">Domingo</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="nome_cliente">Nome do Cliente:</label>
+                <input type="text" id="nome_cliente" name="nome_cliente" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="setor">Setor:</label>
+                <input type="text" id="setor" name="setor">
+            </div>
+
+            <div class="input-group">
+                <label for="local">Local:</label>
+                <input type="text" id="local" name="local">
+            </div>
+            
+            <div class="input-group">
+                <label for="contratante">Contratante:</label>
+                <input type="text" id="contratante" name="contratante">
+            </div>
+
+            <div class="input-group">
+                <label for="responsavel">Responsável (Nome do Vistoriador):</label>
+                <input type="text" id="responsavel" name="responsavel">
+            </div>
+
+            <div class="input-group">
+                <label for="funcao">Função (Cargo):</label>
+                <input type="text" id="funcao" name="funcao">
+            </div>
+
+            <div class="input-group">
+                <label for="turno">Turno:</label>
+                <select id="turno" name="turno">
+                    <option value="">Selecione...</option>
+                    <option value="a">A</option>
+                    <option value="b">B</option>
+                    <option value="c">C</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="hora_inicio">Hora do início da vistoria:</label>
+                <input type="time" id="hora_inicio" name="hora_inicio">
+            </div>
+
+            <div class="input-group">
+                <label>Houve pausas?:</label>
+                <div class="radio-group">
+                    <input type="radio" id="pausas_sim" name="pausas" value="Sim">
+                    <label for="pausas_sim">Sim</label>
+                    <input type="radio" id="pausas_nao" name="pausas" value="Não">
+                    <label for="pausas_nao">Não</label>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Avarias nos volumes?:</label>
+                <div class="radio-group">
+                    <input type="radio" id="avarias_sim" name="avarias_volumes" value="Sim">
+                    <label for="avarias_sim">Sim</label>
+                    <input type="radio" id="avarias_nao" name="avarias_volumes" value="Não">
+                    <label for="avarias_nao">Não</label>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="hora_fim">Hora do fim da vistoria:</label>
+                <input type="time" id="hora_fim" name="hora_fim">
+            </div>
+            
+            <div class="input-group">
+                <label for="atividade">Atividade:</label>
+                <select id="atividade" name="atividade">
+                    <option value="">Selecione...</option>
+                    <option value="ovacao">Ovação</option>
+                    <option value="desova">Desova</option>
+                    <option value="cross_dock">Cross Dock</option>
+                    <option value="outros">Outros</option>
+                </select>
+            </div>
+            
+            <div class="input-group">
+                <label for="status_container">Status do Container:</label>
+                <select id="status_container" name="status_container">
+                    <option value="">Selecione...</option>
+                    <option value="avarias">Avarias</option>
+                    <option value="container_sujo">Container Sujo</option>
+                    <option value="arranhos">Arranhões</option>
+                    <option value="amassado">Amassado</option>
+                    <option value="bom">Bom</option>
+                </select>
+            </div>
+            
+            <div class="input-group">
+                <label for="qtd_volumes">Quantidade de Volumes/Pallets:</label>
+                <input type="number" id="qtd_volumes" name="qtd_volumes" min="0">
+            </div>
+            
+            <div class="input-group">
+                <label for="qtd_asp">Quantidade de ASP:</label>
+                <input type="number" id="qtd_asp" name="qtd_asp" min="0">
+            </div>
+            
+            <div class="input-group">
+                <label for="qtd_empilhadores">Quantidade de Empilhadores:</label>
+                <input type="number" id="qtd_empilhadores" name="qtd_empilhadores" min="0">
+            </div>
+            
+            <div class="input-group full-width">
+                <label for="observacoes">Observações:</label>
+                <textarea id="observacoes" name="observacoes" rows="4"></textarea>
+            </div>
+            
+            <div class="input-group full-width">
+                <label for="fotos">Fotos:</label>
+                <input type="file" id="fotos" name="fotos" accept="image/*" multiple>
+            </div>
+            
+            <button type="submit">Gerar Relatório</button>
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register("{{ url_for('static', filename='sw.js') }}")
+                    .then(registration => console.log('Service Worker registrado com sucesso:', registration))
+                    .catch(err => console.log('Registro do Service Worker falhou:', err));
+            });
+        }
+    </script>
+</body>
+</html>
