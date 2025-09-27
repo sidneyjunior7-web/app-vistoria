@@ -1,0 +1,1 @@
+web: gunicorn vistoria:app
